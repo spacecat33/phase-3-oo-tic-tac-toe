@@ -1,10 +1,11 @@
 
-require 'pry'
+#require 'pry'
 
 class TicTacToe
 
-    def initialize(board = nil)
-        @board = board || Array.new(9, " ")
+  
+    def initialize
+        @board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
     end
 
     WIN_COMBINATIONS = [ 
@@ -139,20 +140,22 @@ class TicTacToe
     #    end
 
     def play
-        until over?
-           turn
-        end 
-        if won?
-           winner == "X" || winner == "O" 
-           puts "Congratulations #{winner}!" 
-        elsif draw?
-           puts "Cat's Game!" 
-        end 
+      turn until over?
+      puts winner ? "Congratulations #{winner}!" : "Cat's Game!"
     end
+    
+    # Or
+    # def play
+    #     until over?
+    #        turn
+    #     end 
+    #     if won?
+    #        winner == "X" || winner == "O" 
+    #        puts "Congratulations #{winner}!" 
+    #     elsif draw?
+    #        puts "Cat's Game!" 
+    #     end 
+    # end
 
-    #or
-    #def play
-    # turn until over?
-    # puts winner ? "Congratulations #{winner}!" : "Cat's Game!"
-    #end
+  
 end
